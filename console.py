@@ -1,7 +1,11 @@
 #To see it in action cd into the airbnb directory then run python commandline.py or python3 commandline.py in your terminal 
 
 
+#!/usr/bin/python3
+
 import cmd
+import sys
+
 
 class Interpreter(cmd.Cmd):
     """Contains functionality of the console"""
@@ -26,12 +30,15 @@ class Interpreter(cmd.Cmd):
         """Destroys an object"""
         print("Destroy an object")
 
-
+    def do_operations(self,args):
+        """Do operations on objects"""
+        print("Choose operation to use on object")
 
     def do_quit(self, args):
         """Quits the interpreter"""
         print("Goodbye!")
         return True
+    
 
 if __name__ == '__main__':
     Interpreter().cmdloop()
