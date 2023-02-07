@@ -120,4 +120,3 @@ All tests should also pass in non-interactive mode:``` $ echo "python3 -m unitte
 
 ![console](./console.png)
 
-[![AirBNB-clone](https://img.youtube.com/vi/1mAC9x3aixE/0.jpg)](https://youtu.be/1mAC9x3aixE "AirBNB clone")
