@@ -1,7 +1,5 @@
-#To see it in action cd into the airbnb console directory then run python commandline.py or python3 commandline.py in your terminal 
-
-
 #!/usr/bin/python3
+#To see it in action cd into the airbnb console directory then run python commandline.py or python3 commandline.py in your terminal 
 
 import cmd
 import sys
