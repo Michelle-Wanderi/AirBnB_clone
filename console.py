@@ -1,4 +1,4 @@
-#To see it in action cd into the airbnb directory then run python commandline.py or python3 commandline.py in your terminal 
+#To see it in action cd into the airbnb console directory then run python commandline.py or python3 commandline.py in your terminal 
 
 
 #!/usr/bin/python3
@@ -7,10 +7,10 @@ import cmd
 import sys
 
 
-class Interpreter(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """Contains functionality of the console"""
     intro = 'Welcome to the interpreter! Type help or ? to list commands.\n'
-    prompt = '(hbnb interpreter) '
+    prompt = '(hbnb) '
     
     def do_hello(self, args):
         """Says hello to the user"""
@@ -34,6 +34,11 @@ class Interpreter(cmd.Cmd):
         """Do operations on objects"""
         print("Choose operation to use on object")
 
+    def do_EOF(self, arg):
+        """ Handles EOF to exit program """
+        print()
+        
+
     def do_quit(self, args):
         """Quits the interpreter"""
         print("Goodbye!")
@@ -41,6 +46,6 @@ class Interpreter(cmd.Cmd):
     
 
 if __name__ == '__main__':
-    Interpreter().cmdloop()
+    HBNBCommand().cmdloop()
 
     
