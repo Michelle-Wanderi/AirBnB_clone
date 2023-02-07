@@ -6,6 +6,23 @@
 ## About
 This is the First Project towards our AirBnB clone project at [ALX](alxafrica.com). Done by [Michelle](https://github.com/Michelle-Wanderi) and [Ebenezer](https://github.com/Itsfoss0)
 
+
+## General Use
+Step 1. 
+Clone the repository and cd into the repository
+
+Step 2.
+Inside the repository, there is a "console.py" file which contains the command line interpreter. Run this command in the terminal to see how it works
+"$ python3 console.py"
+
+Step 3.
+When this command is run this appears
+(hbnb)
+
+Step 4.
+Type ? to view all the commands in the interpreter
+
+
 ## Background Context 
 
 [![AirBNB-clone](https://img.youtube.com/vi/XRH_8w1DEGI/0.jpg)](https://youtu.be/XRH_8w1DEGI "AirBNB clone")
