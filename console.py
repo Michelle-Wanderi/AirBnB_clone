@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 #To see it in action cd into the airbnb console directory then run python commandline.py or python3 commandline.py in your terminal 
-
+# The command interpeter
 import cmd
 from models.base_model import BaseModel
+from models import storage
 
 
 
@@ -34,10 +35,10 @@ class HBNBCommand(cmd.Cmd):
         print("Update attributes of an object")
 
 
-    def do_destroy(self, line):
+    def do_destroy(self, line, args):
         """Destroys an object"""
         print("Destroy an object")
-        args = parse(line)
+        
         obj_list = []
         if len(line) == 0:
             for objs in storage.all().values():
