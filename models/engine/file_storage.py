@@ -36,3 +36,14 @@ class FileStorage:
             objects_dict[key] = value.to_dict()
         with open(FileStorage.__file_path, "w", encoding="UTF-8") as storage:
             json.dump(objects_dict, storage)
+
+    def reload(self):
+        """deserializes the JSON file to __objects
+        (only if the JSON file (__file_path) exists ; otherwise, do nothing
+        """
+        if os.path.exists(FileStorage.__file_path):
+            with open(FileStorage.__file_path, "r", encoding="UTF-8") as f:
+                new_dict = json.load(f)
+                for key, value in new_dict.items():
+                    base = FileStorage.classes[v["__class__"]](**value)
+                    FileStorage.__objects[key] = base
