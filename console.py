@@ -38,6 +38,21 @@ class HBNBCommand(cmd.Cmd):
         """Destroys an object"""
         print("Destroy an object")
         args = parse(line)
+        obj_list = []
+        if len(line) == 0:
+            for objs in storage.all().values():
+                obj_list.append(objs)
+                print(obj_list)
+        elif args[0] in HBNBCommand.classes:
+            for key, objs in storage.all().items():
+                if args[0] in key:
+                    obj_list.append(objs)
+                    print(obj_list)
+        else:
+            print("class doesnt exist")
+
+
+        
 
 
     def do_operations(self,args):
