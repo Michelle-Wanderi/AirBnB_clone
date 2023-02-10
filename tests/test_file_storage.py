@@ -9,6 +9,7 @@ Test Suites for the file_storage module
 FileStorage class and the methods
 """
 
+
 class TestFileStorage(unittest.TestCase):
     """Unittests for the FileStorage class"""
 
@@ -22,7 +23,7 @@ class TestFileStorage(unittest.TestCase):
             os.rename('file.json', 'tempfile')
         self.storage = FileStorage()
         self.base = BaseModel()
-    
+
     def tearDown(self):
         """
         Tear down resources associated with tests
@@ -67,7 +68,7 @@ class TestFileStorage(unittest.TestCase):
         temp_base_id = "BaseModel." + temp_base.id
         self.assertIn(temp_base_id, self.storage.all())
         del temp_base
-        
+
 
 if __name__ == "__main__":
     unittest.main()
