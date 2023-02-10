@@ -5,6 +5,9 @@ import uuid
 from datetime import datetime
 import models
 
+""""This module provides the BaseClass,
+from which all other classes will inherit thier properties"""
+
 
 class BaseModel():
     """This is the parent class where all the classes will inherit from
@@ -44,7 +47,6 @@ class BaseModel():
             self.updated_at = datetime.now()
             models.storage.new(self)
 
-
     def __str__(self):
         """String representation of the objects of this class"""
         return ("[{}] {} {}".format(self.__class__.__name__,
@@ -63,12 +65,11 @@ class BaseModel():
         self.updated_at = datetime.now()
         models.storage.save()
 
-
     def to_dict(self):
         """returns a dictionary containing all keys/values
         of __dict__ of the instance:
         """
-        
+
         properties = self.__dict__.copy()
         properties["__class__"] = self.__class__.__name__
         properties["created_at"] = self.created_at.isoformat()
