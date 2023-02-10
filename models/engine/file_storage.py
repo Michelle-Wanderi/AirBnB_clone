@@ -4,6 +4,7 @@ import os
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
+from models.city import City
 
 """serializes instances to a JSON file and
     deserializes JSON file to instances
@@ -21,7 +22,8 @@ class FileStorage:
     classes = {
         "BaseModel": BaseModel,
         "User": User,
-        "State": State
+        "State": State,
+        "City": City
     }
 
     def all(self):
