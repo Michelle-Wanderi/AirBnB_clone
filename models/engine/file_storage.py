@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import json
 import os
-
+from models.base_model import BaseModel
 
 """serializes instances to a JSON file and
     deserializes JSON file to instances
@@ -16,6 +16,9 @@ class FileStorage:
     """
     __file_path = "file.json"
     __objects = {}
+    classes = {
+        "BaseModel": BaseModel
+    }
 
     def all(self):
         """Returns the dictionary __objects"""
