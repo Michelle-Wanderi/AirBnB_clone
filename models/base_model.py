@@ -69,7 +69,7 @@ class BaseModel():
         of __dict__ of the instance:
         """
         
-        properties = self.__dict__
+        properties = self.__dict__.copy()
         properties["__class__"] = self.__class__.__name__
         properties["created_at"] = self.created_at.isoformat()
         properties["updated_at"] = self.updated_at.isoformat()
