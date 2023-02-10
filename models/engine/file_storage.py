@@ -3,6 +3,7 @@ import json
 import os
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
 
 """serializes instances to a JSON file and
     deserializes JSON file to instances
@@ -19,7 +20,8 @@ class FileStorage:
     __objects = {}
     classes = {
         "BaseModel": BaseModel,
-        "User": User
+        "User": User,
+        "State": State
     }
 
     def all(self):
