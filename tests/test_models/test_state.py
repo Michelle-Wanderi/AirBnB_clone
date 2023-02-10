@@ -13,7 +13,7 @@ class TestState(unittest.TestCase):
     def setUp(self):
         """Set up objects to be used in the test"""
         self.state = State()
-    
+
     def tearDown(self):
         """Tear down resources setup during the tests"""
         del self.state
@@ -35,6 +35,10 @@ class TestState(unittest.TestCase):
         self.assertIn("updated_at", state_dict)
         self.assertIn("__class__", state_dict)
         self.assertEqual(state_dict["__class__"], "State")
+
+    def test_str_method(self):
+        """Test __str__ method of the object"""
+        self.assertIn("[State]", str(self.state))
 
 
 if __name__ == "__main__":
