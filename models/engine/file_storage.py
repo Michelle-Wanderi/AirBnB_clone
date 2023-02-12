@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""serializes instances to a JSON file and
+    deserializes JSON file to instances
+"""
+
 import json
 import os
 from models.base_model import BaseModel
@@ -8,10 +12,6 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-
-"""serializes instances to a JSON file and
-    deserializes JSON file to instances
-"""
 
 
 class FileStorage:
