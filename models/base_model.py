@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-# parent class BaseModel with attributes/methods for other classes
+""""This module provides the BaseClass,
+from which all other classes will inherit thier properties"""
 
 import uuid
 from datetime import datetime
 import models
-
-""""This module provides the BaseClass,
-from which all other classes will inherit thier properties"""
 
 
 class BaseModel():

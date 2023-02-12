@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-from models.base_model import BaseModel
 
-"""
-State Model that inherits from the BaseModel
-"""
+"""State Model that inherits from the BaseModel"""
+
+from models.base_model import BaseModel
 
 
 class State(BaseModel):

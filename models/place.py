@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-from models.base_model import BaseModel
 
-"""
-Places model, inheritting from the BaseModel
-"""
+"""Places model, inheritting from the BaseModel"""
+
+from models.base_model import BaseModel
 
 
 class Place(BaseModel):

@@ -46,6 +46,19 @@ class TestUserModel(unittest.TestCase):
         self.assertIn("updated_at", user_dict)
         self.assertEqual(user_dict["__class__"], "User")
 
+    def test_class_documentation(self):
+        """Test User class docuemntation"""
+        self.assertIsNotNone(User.__doc__)
+
+    def test_module_documentation(self):
+        """Test module documentation """
+        self.assertIsNotNone(User.__module__.__doc__)
+
+    def test_self_docuentation(self):
+        """Why not test documentation for this class/module"""
+        self.assertIsNotNone(self.__class__.__doc__)
+        self.assertIsNotNone(self.__module__.__doc__)
+
 
 if __name__ == "__main__":
     unittest.main()

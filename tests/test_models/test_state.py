@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-from models.state import State
-import unittest
 
 """
 Unit tests for the State module
 """
+
+from models.state import State
+import unittest
 
 
 class TestState(unittest.TestCase):
@@ -39,6 +40,18 @@ class TestState(unittest.TestCase):
     def test_str_method(self):
         """Test __str__ method of the object"""
         self.assertIn("[State]", str(self.state))
+
+    def test_class_documentation(self):
+        """Test 'State' class documentation"""
+        self.assertIsNotNone(State.__doc__)
+
+    def test_module_documentation(self):
+        """Test documentation for the state module"""
+        self.assertIsNotNone(State.__module__.__doc__)
+
+    def test_self_docuentation(self):
+        self.assertIsNotNone(self.__class__.__doc__)
+        self.assertIsNotNone(self.__module__.__doc__)
 
 
 if __name__ == "__main__":

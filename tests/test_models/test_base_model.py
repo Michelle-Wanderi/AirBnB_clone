@@ -1,13 +1,12 @@
 #!/usr/bin/python3
+"""
+Tests Suites for the base model
+"""
+
 import models as md
 import os
 import json
 import unittest
-
-
-"""
-Tests Suites for the base model
-"""
 
 
 class TestBaseModel(unittest.TestCase):
@@ -107,6 +106,35 @@ class TestBaseModelSave(unittest.TestCase):
 
         else:
             pass
+
+
+class TestDocumentation(unittest.TestCase):
+    """Documentation Tests"""
+
+    @classmethod
+    def setUp(self):
+        """Setup objects"""
+        self.new_base = md.base_model.BaseModel()
+
+    @classmethod
+    def tearDown(self):
+        """Tear down resources"""
+        del self.new_base
+
+    def test_class_documentation(self):
+        """Test class documentation"""
+        self.assertIsNotNone(md.base_model.BaseModel.__doc__)
+
+    def test_module_documentation(self):
+        """Test documentation for the 'base_model' module"""
+        module = self.new_base.__module__
+        self.assertIsNotNone(module.__doc__)
+
+    def test_self_docuentation(self):
+        """Tests for this documentation for classes in this module"""
+        self.assertIsNotNone(self.__class__.__doc__)
+        self.assertIsNotNone(TestBaseModelSave.__doc__)
+        self.assertIsNotNone(TestBaseModel.__doc__)
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-from models.base_model import BaseModel
-
 """
 amenity module inheriting from the BaseModel
 """
+
+from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
