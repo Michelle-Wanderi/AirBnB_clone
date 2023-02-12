@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-from models.amenity import Amenity
-import unittest
-
 """
 Test Suites for the amenity module
 """
+
+from models.amenity import Amenity
+import unittest
 
 
 class TestAmenityModel(unittest.TestCase):
@@ -43,6 +43,18 @@ class TestAmenityModel(unittest.TestCase):
         self.assertIn("created_at", amenity_dict)
         self.assertIn("updated_at", amenity_dict)
         self.assertEqual(amenity_dict["__class__"], "Amenity")
+
+    def test_class_documentation(self):
+        """Test for the 'Amenity' class documentation"""
+        self.assertTrue(isinstance(Amenity.__doc__, str))
+
+    def test_module_documentation(self) -> None:
+        """Test documentation for the 'amenity' module"""
+        self.assertIsNotNone(Amenity.__module__.__doc__)
+
+    def test_self_docuentation(self):
+        """Test documentation for this class"""
+        self.assertIsNotNone(self.__class__.__doc__)
 
 
 if __name__ == "__main__":

@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-from models.city import City
-import unittest
-
 """
 Unittest for the city module
 """
+
+from models.city import City
+import unittest
 
 
 class TestCityModel(unittest.TestCase):
@@ -41,6 +41,19 @@ class TestCityModel(unittest.TestCase):
         self.assertIn("created_at", city_dict)
         self.assertIn("updated_at", city_dict)
         self.assertEqual(city_dict["__class__"], "City")
+
+    def test_class_documentation(self):
+        """Test documentation for the 'City' class"""
+        self.assertIsNotNone(City.__doc__)
+
+    def test_module_documentation(self):
+        """Test documentation for the 'city' module"""
+        self.assertIsNotNone(City.__module__.__doc__)
+
+    def test_self_docuentation(self):
+        """Test documentation for this class/module"""
+        self.assertIsNotNone(self.__class__.__doc__)
+        self.assertIsNotNone(self.__module__.__doc__)
 
 
 if __name__ == "__main__":

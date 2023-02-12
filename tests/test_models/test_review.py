@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-from models.review import Review
-import unittest
-
 """
 Unit test for the review module
 """
+
+from models.review import Review
+import unittest
 
 
 class TestReviewModel(unittest.TestCase):
@@ -31,6 +31,20 @@ class TestReviewModel(unittest.TestCase):
         self.assertIsInstance(self.review.text, str)
         self.assertIsInstance(self.review.place_id, str)
         self.assertIsInstance(self.review.user_id, str)
+
+    def test_class_documentation(self):
+        """Test 'Review' class Documentation"""
+        self.assertIsNotNone(Review.__doc__)
+        self.assertIsInstance(Review.__doc__, str)
+
+    def test_module_documentation(self):
+        """Test documentation for the 'review' module"""
+        self.assertIsNotNone(Review.__module__.__doc__)
+
+    def test_self_docuentation(self):
+        """Test documentation for this class/module"""
+        self.assertIsNotNone(self.__class__.__doc__)
+        self.assertIsInstance(self.__module__.__doc__, str)
 
 
 if __name__ == "__main__":
