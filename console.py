@@ -4,6 +4,12 @@ The console, to manage everything
 """
 import cmd
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 
 
@@ -48,6 +54,10 @@ class HBNBCommand(cmd.Cmd):
                     print(obj_list)
         else:
             print("class doesnt exist")
+
+    def emptyline(self):
+        """Overwrite default behavior to repeat last cmd"""
+        pass
 
     def do_operations(self, args):
         """Do operations on objects"""
