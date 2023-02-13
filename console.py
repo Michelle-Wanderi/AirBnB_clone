@@ -29,33 +29,109 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         """Creates a new object"""
-        if not line:
-            print("**PLease write the name of the class")
-        elif line not in HBNBCommand.classes.keys():
-            print("Class does not exist")
+        if len(line) == 0:
+            print("** class name missing **")
+        elif line not in self.__class__.classes.keys():
+            print("** class doesn't exist **")
         else:
-            instance = eval(line)()
-            instance.save()
-            print(instance.id)
+            obj = self.__class__.classes[line]()
+            obj.save()
+            print(obj.id)
+
+    def do_show(self, line):
+        """ Prints the string representation of an instance
+        Args:
+            line -> Class id ( In that order)
+        """
+        class_object = line.split(" ")
+        if len(line) == 0:
+            print("** class name missing **")
+            return
+        elif class_object[0] not in self.__class__.classes.keys():
+            print("** class doesn't exist **")
+            return
+        elif len(class_object) == 1:
+            print("** instance id missing **")
+            return
+        else:
+            key = class_object[0] + "." + class_object[1]
+            all_instances = storage.all()
+            if key not in all_instances.keys():
+                print("** no instance found **")
+            else:
+                obj = all_instances[key]
+                print(str(obj))
 
     def do_update(self, line):
         """Updates attributes of an object"""
-
-    def do_destroy(self, line, args):
-        """Destroys an object"""
-
-        obj_list = []
+        updates = line.split(" ")
         if len(line) == 0:
-            for objs in storage.all().values():
-                obj_list.append(objs)
-                print(obj_list)
-        elif args[0] in HBNBCommand.classes:
-            for key, objs in storage.all().items():
-                if args[0] in key:
-                    obj_list.append(objs)
-                    print(obj_list)
+            print("** class name missing **")
+            return
+        elif updates[0] not in __class__.classes.keys():
+            print("** class doesn't exist **")
+            return
+        elif len(updates) == 1:
+            print("** instance id missing **")
+            return
+        elif len(updates) == 2:
+            print("** attribute name missing **")
+        elif len(updates) == 3:
+            print("** value missing **")
         else:
-            print("class doesnt exist")
+            key = updates[0] + "." + updates[1]
+            all_instances = storage.all()
+            if key not in all_instances.keys():
+                print("** no instance found **")
+            else:
+                obj = all_instances[key]
+                setattr(obj, updates[2], updates[3])
+                storage.save()
+
+    def do_destroy(self, args):
+        """Destroys an object based on the Class Name and ID"""
+
+        target_list = args.split(" ")
+        if len(args) == 0:
+            print("** class name missing **")
+            return
+        elif target_list[0] not in self.__class__.classes.keys():
+            print("** class doesn't exist **")
+            return
+        elif len(target_list) == 1:
+            print("** instance id missing **")
+            return
+        else:
+            key = target_list[0] + "." + target_list[1]
+            all_instances = storage.all()
+            if key not in all_instances.keys():
+                print("** no instance found **")
+            else:
+                del all_instances[key]
+                storage.save()
+
+    def do_all(self, line):
+        """Print string representation of all instances"""
+        obj_list = []
+        objs = storage.all()
+        try:
+            if len(line) != 0:
+                eval(line)
+            else:
+                pass
+        except NameError:
+            print("** class doesn't exist **")
+            return
+        line.strip()
+        for key, val in objs.items():
+            if len(line) != 0:
+                if type(val) is eval(line):
+                    val = str(objs[key])
+                    obj_list.append(val)
+            else:
+                val = str(objs[key])
+                obj_list.append(val)
+        print(obj_list)
 
     def emptyline(self):
         """Overwrite default behavior to repeat last cmd"""
@@ -63,7 +139,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_operations(self, args):
         """Do operations on objects"""
-        print("Choose operation to use on object")
 
     def do_EOF(self, arg):
         """ Handles EOF to exit program """
