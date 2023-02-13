@@ -17,17 +17,21 @@ class HBNBCommand(cmd.Cmd):
     """Contains functionality of the console"""
     intro = 'Welcome to the interpreter! Type help or ? to list commands.\n'
     prompt = '(hbnb) '
-
-    def do_hello(self, line):
-        """Says hello to the user"""
-        print("Hello!")
+    classes = {
+            'BaseModel': BaseModel,
+            'User': User,
+            'State': State,
+            'City': City,
+            'Amenity': Amenity,
+            'Place': Place,
+            'Review': Review
+            }
 
     def do_create(self, line):
         """Creates a new object"""
-        print("Create a new object")
-        if len(line) == 0:
+        if not line:
             print("**PLease write the name of the class")
-        elif line not in HBNBCommand.classes:
+        elif line not in HBNBCommand.classes.keys():
             print("Class does not exist")
         else:
             instance = eval(line)()
@@ -36,11 +40,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, line):
         """Updates attributes of an object"""
-        print("Update attributes of an object")
 
     def do_destroy(self, line, args):
         """Destroys an object"""
-        print("Destroy an object")
 
         obj_list = []
         if len(line) == 0:
