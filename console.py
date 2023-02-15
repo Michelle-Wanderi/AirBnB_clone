@@ -149,6 +149,15 @@ class HBNBCommand(cmd.Cmd):
         """Quits the interpreter"""
         raise SystemExit
 
+    def do_count(self, arg):
+        """Count all instances of a class"""
+        to_count = args.split(" ")
+        instances = 0
+        for obj_ in models.storage.all().values():
+            if to_count[0] == type(obj_).__name__:
+                instances += 1
+        print(instances)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
